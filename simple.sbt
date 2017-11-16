@@ -4,6 +4,9 @@ version := "1.0.0"
 
 scalaVersion := "2.11.4"
 
-val spark = "org.apache.spark" %% "spark-core" % "1.4.1" % "compiled"
-
-libraryDependencies ++= Seq(spark)
+libraryDependencies ++= {
+  val sparkVer = "2.1.0"
+  Seq(
+    "org.apache.spark" %% "spark-core" % sparkVer % "provided" withSources()
+  )
+}

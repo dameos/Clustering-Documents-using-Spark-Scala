@@ -7,7 +7,7 @@ object Hi {
     def main(args: Array[String]) = {
         val conf = new SparkConf ().setAppName("word count")
         val sc = new SparkContext(conf)
-        val files = sc.textFile("hdfs://datasets/gutenberg")
-        println(files.partitions.length)
+        val files = sc.textFile("hdfs:///datasets/gutenberg")
+                      .flatMap(_.split(" ").filter(_ == "error")).count
     }
 }
