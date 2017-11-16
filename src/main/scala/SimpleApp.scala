@@ -9,5 +9,6 @@ object Hi {
         val sc = new SparkContext(conf)
         val files = sc.textFile("hdfs:///datasets/gutenberg")
                       .flatMap(_.split(" ").filter(_ == "error")).count
+        println(files)
     }
 }
