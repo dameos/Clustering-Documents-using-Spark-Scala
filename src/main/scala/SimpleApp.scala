@@ -43,6 +43,7 @@ object Proyecto4 {
         
         val model = pipeline.fit(df)
         val results = model.transform(df)
+        results.write.json("hdfs:///user/dmedina7/resultados")
         results.show()
    }
 }
