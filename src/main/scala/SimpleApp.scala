@@ -10,10 +10,15 @@ import org.apache.spark.ml.Pipeline
 object Proyecto4 {
 	
     def main(args: Array[String]){
+        // Se incia el tiempo para ver cuanto dura la ejecución
+        val startTime = System.currentTimeMillis()
+
         // Se Define el nombre de la aplicación
         val conf = new SparkConf().setAppName("Clustering Spark") 
+
         // Se carga la variable de contexto de spark
         val sc = new SparkContext(conf) 
+
         // Se crea la sesión para spark SQL
         val spark = SparkSession.builder().getOrCreate()
 
@@ -63,5 +68,6 @@ object Proyecto4 {
 
         // Los resultados son mostrados en el stdout
         results.show()
+        println("EL tiempo de ejecución: " + (System.currentTimeMillis() - startTime)/1000)
    }
 }
